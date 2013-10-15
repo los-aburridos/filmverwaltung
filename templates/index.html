@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>filmverwaltung</title>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet/less" href="{{ url_for('static', filename='css/style.less') }}">
+</head>
+<body>
+  <div id="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Regisseur</th>
+              <th>Actors</th>
+              <th>Genre</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Movie</td>
+              <td>Francis Ford Coppola</td>
+              <td>Al Pacino</td>
+              <td>Drama</td>
+              <td>9.6</td>
+            </tr>
+            <tr>
+              <td>Movie</td>
+              <td>Francis Ford Coppola</td>
+              <td>Al Pacino</td>
+              <td>Drama</td>
+              <td>9.6</td>
+            </tr>
+            <tr>
+              <td>Movie</td>
+              <td>Francis Ford Coppola</td>
+              <td>Al Pacino</td>
+              <td>Drama</td>
+              <td>9.6</td>
+            </tr>
+            <tr>
+              <td>Movie</td>
+              <td>Francis Ford Coppola</td>
+              <td>Al Pacino</td>
+              <td>Drama</td>
+              <td>9.6</td>
+            </tr>
+            <tr>
+              <td>Movie</td>
+              <td>Francis Ford Coppola</td>
+              <td>Al Pacino</td>
+              <td>Drama</td>
+              <td>9.6</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.4.1/less.min.js"></script>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
