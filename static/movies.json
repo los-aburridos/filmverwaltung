@@ -1,23 +1,65 @@
 [
-  {"title": "Die Verurteilten"},
-  {"title": "Der Pate"},
-  {"title": "Der Pate II"},
-  {"title": "Pulp Fiction"},
-  {"title": "Zwei glorreiche Halunken"},
-  {"title": "The Dark Knight"},
-  {"title": "Die zwölf Geschworenen"},
-  {"title": "Schindlers Liste"},
-  {"title": "Der Herr der Ringe - Die Rückkehr des Königs"},
-  {"title": "Fight Club"},
-  {"title": "Das Imperium schlägt zurück"},
-  {"title": "Der Herr der Ringe - Die Gefährten"},
-  {"title": "Einer flog über das Kuckucksnest"},
-  {"title": "GoodFellas - Drei Jahrzente in der Mafia"},
-  {"title": "Inception"},
-  {"title": "Die sieben Samurai"},
-  {"title": "Star Wars - Episode IV: Eine neue Hoffnung"},
-  {"title": "Forrest Gump"},
-  {"title": "Matrix"},
-  {"title": "Der Herr der Ringe - Die zwei Türme"},
-  {"title": "City of God"},
+   {
+      "title":"Die Verurteilten"
+   },
+   {
+      "title":"Der Pate"
+   },
+   {
+      "title":"Der Pate II"
+   },
+   {
+      "title":"Pulp Fiction"
+   },
+   {
+      "title":"Zwei glorreiche Halunken"
+   },
+   {
+      "title":"The Dark Knight"
+   },
+   {
+      "title":"Die zwölf Geschworenen"
+   },
+   {
+      "title":"Schindlers Liste"
+   },
+   {
+      "title":"Der Herr der Ringe - Die Rückkehr des Königs"
+   },
+   {
+      "title":"Fight Club"
+   },
+   {
+      "title":"Das Imperium schlägt zurück"
+   },
+   {
+      "title":"Der Herr der Ringe - Die Gefährten"
+   },
+   {
+      "title":"Einer flog über das Kuckucksnest"
+   },
+   {
+      "title":"GoodFellas - Drei Jahrzente in der Mafia"
+   },
+   {
+      "title":"Inception"
+   },
+   {
+      "title":"Die sieben Samurai"
+   },
+   {
+      "title":"Star Wars - Episode IV: Eine neue Hoffnung"
+   },
+   {
+      "title":"Forrest Gump"
+   },
+   {
+      "title":"Matrix"
+   },
+   {
+      "title":"Der Herr der Ringe - Die zwei Türme"
+   },
+   {
+      "title":"City of God"
+   }
 ]

@@ -7,60 +7,24 @@
   <link rel="stylesheet/less" href="{{ url_for('static', filename='css/style.less') }}">
 </head>
 <body>
-  <div id="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Regisseur</th>
-              <th>Actors</th>
-              <th>Genre</th>
-              <th>Rating</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Movie</td>
-              <td>Francis Ford Coppola</td>
-              <td>Al Pacino</td>
-              <td>Drama</td>
-              <td>9.6</td>
-            </tr>
-            <tr>
-              <td>Movie</td>
-              <td>Francis Ford Coppola</td>
-              <td>Al Pacino</td>
-              <td>Drama</td>
-              <td>9.6</td>
-            </tr>
-            <tr>
-              <td>Movie</td>
-              <td>Francis Ford Coppola</td>
-              <td>Al Pacino</td>
-              <td>Drama</td>
-              <td>9.6</td>
-            </tr>
-            <tr>
-              <td>Movie</td>
-              <td>Francis Ford Coppola</td>
-              <td>Al Pacino</td>
-              <td>Drama</td>
-              <td>9.6</td>
-            </tr>
-            <tr>
-              <td>Movie</td>
-              <td>Francis Ford Coppola</td>
-              <td>Al Pacino</td>
-              <td>Drama</td>
-              <td>9.6</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+  <div id="container"></div>
+
+  <script type="text/template" id="movies-template">
+    <div class="col-md-8 col-md-offset-2">
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th>Title</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
     </div>
-  </div>
+  </script>
+
+  <script type="text/template" id="movie-template">
+    <td><%= title %></td>
+  </script>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
