@@ -1,3 +1,9 @@
 # pyhton virtual environment
 VE/
 
+# python project
+.pydevproject
+
+# Eclipse
+.project
+.settings/
