@@ -80,7 +80,14 @@
       "already_seen": true
    },
    {
+<<<<<<< HEAD
       "title":"City of God",
       "already_seen": true
+=======
+      "title":"City of God"
+   },
+   {
+      "title":"Kindsköpfe"
+>>>>>>> 0584d04aefaf0b233d7b473f9e679039a19b91d7
    }
 ]
