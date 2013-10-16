@@ -1,93 +1,86 @@
 [
    {
       "title":"Die Verurteilten",
-      "already_seen": true
+      "already_watched":true
    },
    {
       "title":"Der Pate",
-      "already_seen": true
+      "already_watched":true
    },
    {
       "title":"Der Pate II",
-      "already_seen": true
+      "already_watched":true
    },
    {
       "title":"Pulp Fiction",
-      "already_seen": true
+      "already_watched":true
    },
    {
       "title":"Zwei glorreiche Halunken",
-      "already_seen": true
+      "already_watched":true
    },
    {
       "title":"The Dark Knight",
-      "already_seen": true
+      "already_watched":true
    },
    {
       "title":"Die zwölf Geschworenen",
-      "already_seen": true
+      "already_watched":true
    },
    {
       "title":"Schindlers Liste",
-      "already_seen": true
+      "already_watched":true
    },
    {
       "title":"Der Herr der Ringe - Die Rückkehr des Königs",
-      "already_seen": true
+      "already_watched":true
    },
    {
       "title":"Fight Club",
-      "already_seen": true
+      "already_watched":false
    },
    {
       "title":"Das Imperium schlägt zurück",
-      "already_seen": true
+      "already_watched":false
    },
    {
       "title":"Der Herr der Ringe - Die Gefährten",
-      "already_seen": true
+      "already_watched":false
    },
    {
       "title":"Einer flog über das Kuckucksnest",
-      "already_seen": true
+      "already_watched":false
    },
    {
       "title":"GoodFellas - Drei Jahrzente in der Mafia",
-      "already_seen": true
+      "already_watched":false
    },
    {
       "title":"Inception",
-      "already_seen": true
+      "already_watched":false
    },
    {
       "title":"Die sieben Samurai",
-      "already_seen": true
+      "already_watched":false
    },
    {
       "title":"Star Wars - Episode IV: Eine neue Hoffnung",
-      "already_seen": true
+      "already_watched":false
    },
    {
       "title":"Forrest Gump",
-      "already_seen": true
+      "already_watched":false
    },
    {
       "title":"Matrix",
-      "already_seen": true
+      "already_watched":false
    },
    {
       "title":"Der Herr der Ringe - Die zwei Türme",
-      "already_seen": true
+      "already_watched":true
    },
    {
-<<<<<<< HEAD
       "title":"City of God",
-      "already_seen": true
-=======
-      "title":"City of God"
-   },
-   {
-      "title":"Kindsköpfe"
->>>>>>> 0584d04aefaf0b233d7b473f9e679039a19b91d7
+      "already_watched":true
    }
 ]

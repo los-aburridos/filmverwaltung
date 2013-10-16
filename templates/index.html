@@ -8,44 +8,46 @@
 </head>
 <body>
   <div id="container"></div>
-  
-  <div class="ja_s">
-	<form>
-	  <fieldset>
-	    <legend>Einen neuen Film anlegen</legend>
-	    <label>Filmtitel</label>
-	    <input type="text" placeholder="Film eingeben">
-	    <span class="help-block">Blablabla</span>
-	    <!-- <button type="submit" class="btn">Speichern</button> -->
-	  </fieldset>
-	</form>
-  </div>
 
-  <!-- <hr> -->
-  <!-- <div class="pull-right"> -->
-    <!-- <a href="#">Already seen</a> | <a href="#">Not yet seen</a> | <a href="">All</a> -->
-  <!-- </div> -->
+<!-- <div class="ja_s"> -->
+<!-- <form> -->
+<!-- <fieldset> -->
+<!-- <legend>Einen neuen Film anlegen</legend> -->
+<!-- <label>Filmtitel</label> -->
+<!-- <input type="text" placeholder="Film eingeben"> -->
+<!-- <span class="help-block">Blablabla</span> -->
+<!-- <button type="submit" class="btn">Speichern</button> -->
+<!-- </fieldset> -->
+<!-- </form> -->
+<!-- </div> -->
 
   <script type="text/template" id="movies-template">
     <div class="col-md-8 col-md-offset-2">
       <h1>Movie Palace</h1>
-      <hr>
+      <hr class="large">
       <table class="table table-condensed table-hover">
         <thead>
           <tr>
             <th>Title</th>
-            <th>Already Seen</th>
+            <th>Already Watched</th>
             <th></th>
           </tr>
         </thead>
         <tbody></tbody>
       </table>
+      <hr class="medium">
+      <form role="form">
+        <div class="form-group">
+          <label class="sr-only" for="movieTitle">Enter your movie here</label>
+          <input type="text" class="form-control" id="movieTitle" placeholder="Enter your movie here">
+        </div>
+      </form>
     </div>
   </script>
 
   <script type="text/template" id="movie-template">
     <td><%= title %></td>
-    <td><%= already_seen %></td>
+    <td><%= already_watched %></td>
     <td><span class="glyphicon glyphicon-remove pull-right"></span></td>
   </script>
 
