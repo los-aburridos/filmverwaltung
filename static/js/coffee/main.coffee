@@ -1,3 +1,7 @@
+# https://github.com/CodeSeven/toastr
+# http://tablesorter.com/docs/
+
+
 jQuery ->
 
   class window.Movie extends Backbone.Model
