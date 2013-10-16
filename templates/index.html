@@ -9,12 +9,21 @@
 <body>
   <div id="container"></div>
 
+  <!-- <hr> -->
+  <!-- <div class="pull-right"> -->
+    <!-- <a href="#">Already seen</a> | <a href="#">Not yet seen</a> | <a href="">All</a> -->
+  <!-- </div> -->
+
   <script type="text/template" id="movies-template">
     <div class="col-md-8 col-md-offset-2">
+      <h1>Movie Palace</h1>
+      <hr>
       <table class="table table-condensed table-hover">
         <thead>
           <tr>
             <th>Title</th>
+            <th>Already Seen</th>
+            <th></th>
           </tr>
         </thead>
         <tbody></tbody>
@@ -23,7 +32,9 @@
   </script>
 
   <script type="text/template" id="movie-template">
-    <td><%= title %><span class="glyphicon glyphicon-remove pull-right"></span></td>
+    <td><%= title %></td>
+    <td><%= already_seen %></td>
+    <td><span class="glyphicon glyphicon-remove pull-right"></span></td>
   </script>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

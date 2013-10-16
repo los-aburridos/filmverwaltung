@@ -1,65 +1,86 @@
 [
    {
-      "title":"Die Verurteilten"
+      "title":"Die Verurteilten",
+      "already_seen": true
    },
    {
-      "title":"Der Pate"
+      "title":"Der Pate",
+      "already_seen": true
    },
    {
-      "title":"Der Pate II"
+      "title":"Der Pate II",
+      "already_seen": true
    },
    {
-      "title":"Pulp Fiction"
+      "title":"Pulp Fiction",
+      "already_seen": true
    },
    {
-      "title":"Zwei glorreiche Halunken"
+      "title":"Zwei glorreiche Halunken",
+      "already_seen": true
    },
    {
-      "title":"The Dark Knight"
+      "title":"The Dark Knight",
+      "already_seen": true
    },
    {
-      "title":"Die zwölf Geschworenen"
+      "title":"Die zwölf Geschworenen",
+      "already_seen": true
    },
    {
-      "title":"Schindlers Liste"
+      "title":"Schindlers Liste",
+      "already_seen": true
    },
    {
-      "title":"Der Herr der Ringe - Die Rückkehr des Königs"
+      "title":"Der Herr der Ringe - Die Rückkehr des Königs",
+      "already_seen": true
    },
    {
-      "title":"Fight Club"
+      "title":"Fight Club",
+      "already_seen": true
    },
    {
-      "title":"Das Imperium schlägt zurück"
+      "title":"Das Imperium schlägt zurück",
+      "already_seen": true
    },
    {
-      "title":"Der Herr der Ringe - Die Gefährten"
+      "title":"Der Herr der Ringe - Die Gefährten",
+      "already_seen": true
    },
    {
-      "title":"Einer flog über das Kuckucksnest"
+      "title":"Einer flog über das Kuckucksnest",
+      "already_seen": true
    },
    {
-      "title":"GoodFellas - Drei Jahrzente in der Mafia"
+      "title":"GoodFellas - Drei Jahrzente in der Mafia",
+      "already_seen": true
    },
    {
-      "title":"Inception"
+      "title":"Inception",
+      "already_seen": true
    },
    {
-      "title":"Die sieben Samurai"
+      "title":"Die sieben Samurai",
+      "already_seen": true
    },
    {
-      "title":"Star Wars - Episode IV: Eine neue Hoffnung"
+      "title":"Star Wars - Episode IV: Eine neue Hoffnung",
+      "already_seen": true
    },
    {
-      "title":"Forrest Gump"
+      "title":"Forrest Gump",
+      "already_seen": true
    },
    {
-      "title":"Matrix"
+      "title":"Matrix",
+      "already_seen": true
    },
    {
-      "title":"Der Herr der Ringe - Die zwei Türme"
+      "title":"Der Herr der Ringe - Die zwei Türme",
+      "already_seen": true
    },
    {
-      "title":"City of God"
+      "title":"City of God",
+      "already_seen": true
    }
 ]
