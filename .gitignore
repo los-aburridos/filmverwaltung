@@ -1,6 +1,9 @@
 # pyhton virtual environment
 VE/
 
+# compiled starter
+runserver.pyc
+
 # eclipse
 .project
 .pydevproject
