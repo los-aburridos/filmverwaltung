@@ -1,6 +1,10 @@
 # pyhton virtual environment
 VE/
 
+# python binary files
+*.pyc
+
+
 # eclipse
 .project
 .pydevproject
