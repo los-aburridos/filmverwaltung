@@ -1,22 +1,23 @@
-# https://github.com/CodeSeven/toastr
-# http://tablesorter.com/docs/
-
-
 jQuery ->
 
   class window.Movie extends Backbone.Model
 
   class window.Movies extends Backbone.Collection
     model: Movie
-    url: '/movies'
+    url: '/api/movies'
 
   window.movies = new Movies()
 
   class window.MovieView extends Backbone.View
     tagName: 'tr'
 
+    events:
+      'click .remove': 'clear',
+
     initialize: ->
-      @model.bind 'change', @render
+      @listenTo @model, 'change', @render
+      @listenTo @model, 'destroy', @remove
+
       @template = _.template ($ '#movie-template').html()
 
     render: =>
@@ -24,12 +25,20 @@ jQuery ->
 
       @
 
+    clear: ->
+      @model.destroy()
+
   class window.MoviesView extends Backbone.View
     tagName: 'div'
     className: 'row'
 
+    events:
+      'keypress #newMovie': 'createOnEnter',
+
     initialize: ->
-      @collection.bind 'reset', @render
+      @listenTo @collection, 'reset', @render
+      @listenTo @collection, 'change', @render
+
       @template = _.template ($ '#movies-template').html()
 
     render: =>
@@ -47,10 +56,21 @@ jQuery ->
 
       @
 
+    createOnEnter: (e) ->
+      $input = @$ '#newMovie'
+
+      if e.which isnt 13 or not $input.val().trim()
+        return
+
+      window.movies.create {
+        title: $input.val().trim()
+      }
+
+      $input.val ''
+
   class window.MovieAdministration extends Backbone.Router
-    routes: {
+    routes:
       '': 'index'
-    }
 
     initialize: ->
       @moviesView = new MoviesView {

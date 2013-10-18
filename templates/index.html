@@ -9,60 +9,48 @@
 <body>
   <div id="container"></div>
 
-<!-- <div class="ja_s"> -->
-<!-- <form> -->
-<!-- <fieldset> -->
-<!-- <legend>Einen neuen Film anlegen</legend> -->
-<!-- <label>Filmtitel</label> -->
-<!-- <input type="text" placeholder="Film eingeben"> -->
-<!-- <span class="help-block">Blablabla</span> -->
-<!-- <button type="submit" class="btn">Speichern</button> -->
-<!-- </fieldset> -->
-<!-- </form> -->
-<!-- </div> -->
-
   <script type="text/template" id="movies-template">
     <div class="col-md-8 col-md-offset-2">
       <h1>Movie Palace</h1>
       <hr class="large">
       <ul class="list-inline">
         <li class="active"><a href="#">All</a></li>
-        <li><a href="#">New</a></li>
         <li><a href="#">Watched</a></li>
       </ul>
       <table class="table table-condensed table-hover">
         <thead>
           <tr>
             <th>Title</th>
-            <th>Already Watched</th>
+            <th>Watched</th>
             <th></th>
           </tr>
         </thead>
         <tbody></tbody>
       </table>
       <hr class="medium">
-      <form role="form">
-        <div class="form-group">
-          <label class="sr-only" for="movieTitle">Enter your movie here</label>
-          <input type="text" class="form-control" id="movieTitle" placeholder="Enter your movie here">
-        </div>
-      </form>
+      <div class="form-group">
+        <label class="sr-only" for="newMovie">Enter your movie here</label>
+        <input type="text" class="form-control" id="newMovie" placeholder="Enter your movie here">
+      </div>
     </div>
   </script>
 
   <script type="text/template" id="movie-template">
     <td><%= title %></td>
     <td><%= already_watched %></td>
-    <td><span class="glyphicon glyphicon-remove pull-right"></span></td>
+    <td><span class="glyphicon glyphicon-remove pull-right remove"></span></td>
   </script>
 
+  <!-- jquery, underscore and backbone -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
 
+  <!-- bootstrap and less -->
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.4.1/less.min.js"></script>
 
+  <!-- main application -->
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>

@@ -27,7 +27,7 @@
 
       Movies.prototype.model = Movie;
 
-      Movies.prototype.url = '/movies';
+      Movies.prototype.url = '/api/movies';
 
       return Movies;
 
@@ -44,14 +44,23 @@
 
       MovieView.prototype.tagName = 'tr';
 
+      MovieView.prototype.events = {
+        'click .remove': 'clear'
+      };
+
       MovieView.prototype.initialize = function() {
-        this.model.bind('change', this.render);
+        this.listenTo(this.model, 'change', this.render);
+        this.listenTo(this.model, 'destroy', this.remove);
         return this.template = _.template(($('#movie-template')).html());
       };
 
       MovieView.prototype.render = function() {
         ($(this.el)).html(this.template(this.model.toJSON()));
         return this;
+      };
+
+      MovieView.prototype.clear = function() {
+        return this.model.destroy();
       };
 
       return MovieView;
@@ -70,8 +79,13 @@
 
       MoviesView.prototype.className = 'row';
 
+      MoviesView.prototype.events = {
+        'keypress #newMovie': 'createOnEnter'
+      };
+
       MoviesView.prototype.initialize = function() {
-        this.collection.bind('reset', this.render);
+        this.listenTo(this.collection, 'reset', this.render);
+        this.listenTo(this.collection, 'change', this.render);
         return this.template = _.template(($('#movies-template')).html());
       };
 
@@ -89,6 +103,18 @@
           return $tbody.append(view.render().el);
         });
         return this;
+      };
+
+      MoviesView.prototype.createOnEnter = function(e) {
+        var $input;
+        $input = this.$('#newMovie');
+        if (e.which !== 13 || !$input.val().trim()) {
+          return;
+        }
+        window.movies.create({
+          title: $input.val().trim()
+        });
+        return $input.val('');
       };
 
       return MoviesView;
