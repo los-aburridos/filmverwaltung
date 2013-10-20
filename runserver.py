@@ -23,8 +23,9 @@ db  = SQLAlchemy(app)
 # fields for RESTful object serilization
 movie_fields = {
     'id': fields.Integer,
+    'year': fields.String,
     'title': fields.String,
-    'already_watched': fields.Boolean
+    'watched': fields.Boolean
 }
 
 
@@ -34,6 +35,7 @@ def abort_if_movie_doesnt_exist(id):
         abort(404, message="Movie {} doesn't exist".format(id))
 
 parser = reqparse.RequestParser()
+parser.add_argument('year', type=str, location='json')
 parser.add_argument('title', type=str, location='json')
 
 
@@ -42,12 +44,14 @@ class Movie(db.Model):
     __tablename__ = 'movies'
 
     id = db.Column(db.Integer, primary_key=True)
+    year = db.Column(db.String())
     title = db.Column(db.String(), unique=True)
-    already_watched = db.Column(db.Boolean())
+    watched = db.Column(db.Boolean())
 
-    def __init__(self, title):
+    def __init__(self, year, title):
+        self.year = year
         self.title = title
-        self.already_watched = False
+        self.watched = False
 
     def __repr__(self):
         return '<Movie %r>' % self.title
@@ -62,7 +66,7 @@ class MovieListAPI(Resource):
     @marshal_with(movie_fields)
     def post(self):
         args = parser.parse_args()
-        movie = Movie(args['title'])
+        movie = Movie(args['year'], args['title'])
         db.session.add(movie)
         db.session.commit()
         return movie, 201

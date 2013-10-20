@@ -62,11 +62,23 @@ jQuery ->
       if e.which isnt 13 or not $input.val().trim()
         return
 
+      rawDescription = $input.val().trim()
+      [all, title, year] = @parseRawDescription rawDescription
+
       window.movies.create {
-        title: $input.val().trim()
+        year: year
+        title: title
       }
 
       $input.val ''
+
+    parseRawDescription: (rawDescription) ->
+      pattern = ///
+        ([^$]+)  # Title
+        (\d{4})  # Year
+      ///
+      result = rawDescription.match pattern
+      r.trim().replace /,/g, '' for r in result
 
   class window.MovieAdministration extends Backbone.Router
     routes:

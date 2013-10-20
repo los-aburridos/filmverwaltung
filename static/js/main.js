@@ -106,15 +106,30 @@
       };
 
       MoviesView.prototype.createOnEnter = function(e) {
-        var $input;
+        var $input, all, rawDescription, title, year, _ref4;
         $input = this.$('#newMovie');
         if (e.which !== 13 || !$input.val().trim()) {
           return;
         }
+        rawDescription = $input.val().trim();
+        _ref4 = this.parseRawDescription(rawDescription), all = _ref4[0], title = _ref4[1], year = _ref4[2];
         window.movies.create({
-          title: $input.val().trim()
+          year: year,
+          title: title
         });
         return $input.val('');
+      };
+
+      MoviesView.prototype.parseRawDescription = function(rawDescription) {
+        var pattern, r, result, _i, _len, _results;
+        pattern = /([^$]+)(\d{4})/;
+        result = rawDescription.match(pattern);
+        _results = [];
+        for (_i = 0, _len = result.length; _i < _len; _i++) {
+          r = result[_i];
+          _results.push(r.trim().replace(/,/g, ''));
+        }
+        return _results;
       };
 
       return MoviesView;
