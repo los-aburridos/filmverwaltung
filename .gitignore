@@ -4,8 +4,10 @@ VE/
 # python binary files
 *.pyc
 
-
 # eclipse
 .project
 .pydevproject
 .settings/
+
+# misc
+todo.md
