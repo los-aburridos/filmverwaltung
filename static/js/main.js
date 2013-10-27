@@ -23,6 +23,7 @@
       Movie.prototype.idAttribute = '_id';
 
       Movie.prototype.defaults = {
+        cast: 'not available',
         genres: 'not available',
         original_title: 'not available',
         overview: 'not available',
@@ -38,6 +39,7 @@
       function DecoratedMovie(movie) {
         this.movie = movie;
         this.movie.set('base_url', window.base_url);
+        this.data = {};
         this.deferred = this.fetchDataFromTMDb();
       }
 
@@ -56,10 +58,14 @@
         that = this;
         _tmdb_id = this.movie.get('_tmdb_id');
         if (_tmdb_id) {
-          return $.get("" + api_url + "/movie/" + _tmdb_id + "?api_key=" + api_key, function(data) {
-            that.data = data;
+          $.get("" + api_url + "/movie/" + _tmdb_id + "?api_key=" + api_key, function(data) {
+            $.extend(that.data, data);
             that.data.genres = that.processArray(that.data.genres);
             return that.data.release_date = that.processDate(that.data.release_date);
+          });
+          return $.get("" + api_url + "/movie/" + _tmdb_id + "/casts?api_key=" + api_key, function(data) {
+            $.extend(that.data, data);
+            return that.data.cast = that.processArray(that.data.cast.slice(0, 10));
           });
         } else {
           deferred = new $.Deferred;

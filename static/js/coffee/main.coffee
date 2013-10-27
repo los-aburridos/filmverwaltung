@@ -12,6 +12,7 @@ jQuery ->
     idAttribute: '_id'
 
     defaults:
+      cast: 'not available'
       genres: 'not available'
       original_title: 'not available'
       overview: 'not available'
@@ -22,6 +23,7 @@ jQuery ->
   class window.DecoratedMovie
     constructor: (@movie) ->
       @movie.set 'base_url', window.base_url
+      @data = {}
       @deferred = @fetchDataFromTMDb()
 
     toJSON: ->
@@ -38,11 +40,17 @@ jQuery ->
 
       if _tmdb_id
         $.get "#{api_url}/movie/#{_tmdb_id}?api_key=#{api_key}", (data) ->
-          that.data = data
+          $.extend that.data, data
 
           # post processing
           that.data.genres = that.processArray that.data.genres
           that.data.release_date = that.processDate that.data.release_date
+
+        $.get "#{api_url}/movie/#{_tmdb_id}/casts?api_key=#{api_key}", (data) ->
+          $.extend that.data, data
+
+          # post processing
+          that.data.cast = that.processArray that.data.cast[0..9]
       else
         deferred = new $.Deferred
         deferred.resolve()
