@@ -1,13 +1,5 @@
 jQuery ->
 
-  window.api_url = 'http://api.themoviedb.org/3'
-  window.api_key = 'b8c58e84a6add62d174b2aa7421365be'
-
-
-  do window.getConfig = ->
-    $.get "#{api_url}/configuration?api_key=#{api_key}", (data) ->
-      window.base_url = data.images.base_url
-
   class window.Movie extends Backbone.Model
     idAttribute: '_id'
 
@@ -19,10 +11,10 @@ jQuery ->
       poster_path: 'not available'
       release_date: 'not available'
       runtime: 'not available'
+      vote_average: 'not available'
 
   class window.DecoratedMovie
     constructor: (@movie) ->
-      @movie.set 'base_url', window.base_url
       @data = {}
       @deferred = @fetchDataFromTMDb()
 
@@ -35,25 +27,29 @@ jQuery ->
         json
 
     fetchDataFromTMDb: ->
-      that = @
       _tmdb_id = @movie.get '_tmdb_id'
+      that = @
 
       if _tmdb_id
-        $.get "#{api_url}/movie/#{_tmdb_id}?api_key=#{api_key}", (data) ->
-          $.extend that.data, data
+        urls = [
+          "http://api.themoviedb.org/3/configuration?api_key=b8c58e84a6add62d174b2aa7421365be"
+          "http://api.themoviedb.org/3/movie/#{_tmdb_id}?api_key=b8c58e84a6add62d174b2aa7421365be"
+          "http://api.themoviedb.org/3/movie/#{_tmdb_id}/casts?api_key=b8c58e84a6add62d174b2aa7421365be"
+        ]
 
-          # post processing
-          that.data.genres = that.processArray that.data.genres
-          that.data.release_date = that.processDate that.data.release_date
+        deferreds = $.map urls, (url) ->
+          $.get url, (data) ->
+            $.extend that.data, data
 
-        $.get "#{api_url}/movie/#{_tmdb_id}/casts?api_key=#{api_key}", (data) ->
-          $.extend that.data, data
-
-          # post processing
-          that.data.cast = that.processArray that.data.cast[0..9]
+        $.when.apply $, deferreds
       else
         deferred = new $.Deferred
         deferred.resolve()
+
+    adjustData: ->
+      @data.cast = @processArray @data.cast[0..9]
+      @data.genres = @processArray @data.genres
+      @data.release_date = @processDate @data.release_date
 
     processArray: (array) ->
       rv = []
@@ -75,8 +71,6 @@ jQuery ->
   class window.Movies extends Backbone.Collection
     model: Movie
     url: '/api/movies'
-
-  window.movies = new Movies()
 
   class window.MovieView extends Backbone.View
     tagName: 'tr'
@@ -150,12 +144,17 @@ jQuery ->
 
     fetchTMDbId: (_year, _title) ->
       that = @
+      url = "http://api.themoviedb.org/3/search/movie
+?api_key=b8c58e84a6add62d174b2aa7421365be
+&query=#{_title}
+&include_adult=false
+&year=#{_year}"
 
-      $.get "#{api_url}/search/movie?api_key=#{api_key}&query=#{_title}&include_adult=false&year=#{_year}", (data) ->
+      $.get url, (data) ->
         that.createMovie data.results[0]?.id, _year, _title
 
     createMovie: (_tmdb_id, _year, _title) ->
-      window.movies.create
+      @collection.create
         _tmdb_id: _tmdb_id
         _year: _year
         _title: _title
@@ -171,6 +170,9 @@ jQuery ->
       that = @
 
       @model.deferred.done ->
+        if that.model.movie.get '_tmdb_id'
+          that.model.adjustData()
+
         ($ that.el).html(that.template that.model.toJSON())
 
       @
@@ -180,30 +182,36 @@ jQuery ->
       '': 'index'
       'movies/:id': 'movieSingleView'
 
+    initialize: ->
+      @collection = new Movies()
+      @deferred = @collection.fetch
+        reset: true
+
     index: ->
       moviesView = new MoviesView
-        collection: window.movies
+        collection: @collection
 
       ($ '#container')
         .empty()
         .append moviesView.render().el
 
     movieSingleView: (id) ->
-      movie = window.movies.get id
-      decoratedMovie = new DecoratedMovie movie
+      that = @
 
-      movieSingleView = new MovieSingleView
-        model: decoratedMovie
+      # wait until collection is loaded before rendering
+      @deferred.done ->
+        movie = that.collection.get id
+        decoratedMovie = new DecoratedMovie movie
 
-      ($ '#container')
-        .empty()
-        .append movieSingleView.render().el
+        movieSingleView = new MovieSingleView
+          model: decoratedMovie
+
+        ($ '#container')
+          .empty()
+          .append movieSingleView.render().el
 
   $ ->
     window.app = new Router()
 
     Backbone.history.start
       pushstate: true
-
-    window.movies.fetch
-      reset: true

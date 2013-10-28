@@ -5,13 +5,6 @@
 
   jQuery(function() {
     var _ref, _ref1, _ref2, _ref3, _ref4, _ref5;
-    window.api_url = 'http://api.themoviedb.org/3';
-    window.api_key = 'b8c58e84a6add62d174b2aa7421365be';
-    (window.getConfig = function() {
-      return $.get("" + api_url + "/configuration?api_key=" + api_key, function(data) {
-        return window.base_url = data.images.base_url;
-      });
-    })();
     window.Movie = (function(_super) {
       __extends(Movie, _super);
 
@@ -29,7 +22,8 @@
         overview: 'not available',
         poster_path: 'not available',
         release_date: 'not available',
-        runtime: 'not available'
+        runtime: 'not available',
+        vote_average: 'not available'
       };
 
       return Movie;
@@ -38,7 +32,6 @@
     window.DecoratedMovie = (function() {
       function DecoratedMovie(movie) {
         this.movie = movie;
-        this.movie.set('base_url', window.base_url);
         this.data = {};
         this.deferred = this.fetchDataFromTMDb();
       }
@@ -54,23 +47,27 @@
       };
 
       DecoratedMovie.prototype.fetchDataFromTMDb = function() {
-        var deferred, that, _tmdb_id;
-        that = this;
+        var deferred, deferreds, that, urls, _tmdb_id;
         _tmdb_id = this.movie.get('_tmdb_id');
+        that = this;
         if (_tmdb_id) {
-          $.get("" + api_url + "/movie/" + _tmdb_id + "?api_key=" + api_key, function(data) {
-            $.extend(that.data, data);
-            that.data.genres = that.processArray(that.data.genres);
-            return that.data.release_date = that.processDate(that.data.release_date);
+          urls = ["http://api.themoviedb.org/3/configuration?api_key=b8c58e84a6add62d174b2aa7421365be", "http://api.themoviedb.org/3/movie/" + _tmdb_id + "?api_key=b8c58e84a6add62d174b2aa7421365be", "http://api.themoviedb.org/3/movie/" + _tmdb_id + "/casts?api_key=b8c58e84a6add62d174b2aa7421365be"];
+          deferreds = $.map(urls, function(url) {
+            return $.get(url, function(data) {
+              return $.extend(that.data, data);
+            });
           });
-          return $.get("" + api_url + "/movie/" + _tmdb_id + "/casts?api_key=" + api_key, function(data) {
-            $.extend(that.data, data);
-            return that.data.cast = that.processArray(that.data.cast.slice(0, 10));
-          });
+          return $.when.apply($, deferreds);
         } else {
           deferred = new $.Deferred;
           return deferred.resolve();
         }
+      };
+
+      DecoratedMovie.prototype.adjustData = function() {
+        this.data.cast = this.processArray(this.data.cast.slice(0, 10));
+        this.data.genres = this.processArray(this.data.genres);
+        return this.data.release_date = this.processDate(this.data.release_date);
       };
 
       DecoratedMovie.prototype.processArray = function(array) {
@@ -112,7 +109,6 @@
       return Movies;
 
     })(Backbone.Collection);
-    window.movies = new Movies();
     window.MovieView = (function(_super) {
       __extends(MovieView, _super);
 
@@ -206,16 +202,17 @@
       };
 
       MoviesView.prototype.fetchTMDbId = function(_year, _title) {
-        var that;
+        var that, url;
         that = this;
-        return $.get("" + api_url + "/search/movie?api_key=" + api_key + "&query=" + _title + "&include_adult=false&year=" + _year, function(data) {
+        url = "http://api.themoviedb.org/3/search/movie?api_key=b8c58e84a6add62d174b2aa7421365be&query=" + _title + "&include_adult=false&year=" + _year;
+        return $.get(url, function(data) {
           var _ref4;
           return that.createMovie((_ref4 = data.results[0]) != null ? _ref4.id : void 0, _year, _title);
         });
       };
 
       MoviesView.prototype.createMovie = function(_tmdb_id, _year, _title) {
-        return window.movies.create({
+        return this.collection.create({
           _tmdb_id: _tmdb_id,
           _year: _year,
           _title: _title
@@ -245,6 +242,9 @@
         var that;
         that = this;
         this.model.deferred.done(function() {
+          if (that.model.movie.get('_tmdb_id')) {
+            that.model.adjustData();
+          }
           return ($(that.el)).html(that.template(that.model.toJSON()));
         });
         return this;
@@ -266,22 +266,33 @@
         'movies/:id': 'movieSingleView'
       };
 
+      Router.prototype.initialize = function() {
+        this.collection = new Movies();
+        return this.deferred = this.collection.fetch({
+          reset: true
+        });
+      };
+
       Router.prototype.index = function() {
         var moviesView;
         moviesView = new MoviesView({
-          collection: window.movies
+          collection: this.collection
         });
         return ($('#container')).empty().append(moviesView.render().el);
       };
 
       Router.prototype.movieSingleView = function(id) {
-        var decoratedMovie, movie, movieSingleView;
-        movie = window.movies.get(id);
-        decoratedMovie = new DecoratedMovie(movie);
-        movieSingleView = new MovieSingleView({
-          model: decoratedMovie
+        var that;
+        that = this;
+        return this.deferred.done(function() {
+          var decoratedMovie, movie, movieSingleView;
+          movie = that.collection.get(id);
+          decoratedMovie = new DecoratedMovie(movie);
+          movieSingleView = new MovieSingleView({
+            model: decoratedMovie
+          });
+          return ($('#container')).empty().append(movieSingleView.render().el);
         });
-        return ($('#container')).empty().append(movieSingleView.render().el);
       };
 
       return Router;
@@ -289,11 +300,8 @@
     })(Backbone.Router);
     return $(function() {
       window.app = new Router();
-      Backbone.history.start({
+      return Backbone.history.start({
         pushstate: true
-      });
-      return window.movies.fetch({
-        reset: true
       });
     });
   });

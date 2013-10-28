@@ -52,7 +52,7 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="col-md-6">
         <% if (poster_path !== 'not available') { %>
-          <img src="<%= base_url %>original<%= poster_path %>" class="img-responsive" alt="">
+          <img src="<%= images.base_url %>original<%= poster_path %>" class="img-responsive" alt="">
         <% } else { %>
           <img src="{{ url_for('static', filename='img/default.png') }}" class="img-responsive" alt="">
         <% } %>
@@ -69,7 +69,7 @@
         <p><%= cast %></p>
         <hr>
         <h4>Rating</h4>
-        <p><%= vote_average %>/10</p>
+        <p><%= vote_average %><% if(runtime !== 'not available') { %>/10<% } %></p>
       </div>
     </div>
   </script>
