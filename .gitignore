@@ -4,6 +4,9 @@ VE/
 # python binary files
 *.pyc
 
+# database
+database.db
+
 # eclipse
 .project
 .pydevproject
