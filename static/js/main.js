@@ -80,12 +80,12 @@
       };
 
       DecoratedMovie.prototype.processDate = function(date) {
-        var day, month, options, rv, year, _ref1;
-        options = {
+        var day, month, rv, year, _ref1;
+        options({
           year: 'numeric',
           month: 'long',
           day: 'numeric'
-        };
+        });
         _ref1 = date.split('-'), year = _ref1[0], month = _ref1[1], day = _ref1[2];
         rv = new Date(year, month, day);
         return rv.toLocaleDateString('en-US', options);
