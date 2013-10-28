@@ -58,9 +58,9 @@ jQuery ->
       rv.join ", "
 
     processDate: (date) ->
-      options =
-        year: 'numeric'
-        month: 'long'
+      options
+        ([^$]+)  # Title
+        (18[9]\d|20[01]\d) #Year
         day: 'numeric'
 
       [year, month, day] = date.split '-'
