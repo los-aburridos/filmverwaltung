@@ -108,16 +108,6 @@ def index(path):
     return render_template('index.html')
 
 
-# @app.route('/movies')
-# def movies():
-#     file = os.path.join(app.static_folder, 'movies.json')
-#     with open(file, 'r') as f:
-#         content = f.read()
-#     response = Response(response=content, status=200,
-#                         mimetype='application/json')
-#     return response
-
-
 # RESTful API routing
 api.add_resource(MovieListAPI, '/api/movies')
 api.add_resource(MovieAPI, '/api/movies/<int:_id>')
