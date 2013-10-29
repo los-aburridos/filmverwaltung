@@ -3,42 +3,92 @@
  */
 
 /* Sterne */
-div.ja_test.rating{
-	width:94px;
-	height:17px;
+div.ja_test.rating.average{
+	width:100px;
+	height:18px;
 	background:url(../img/rating_stars.png) transparent;
 }
 
 /* Einzelbewertungen */
-.rt_10{
-	background-position:0 -220px !important;
+.average.rt_10{
+	background-position:0 -218px !important;
 }
-.rt_9{
-	background-position:0 -198px !important;
+.average.rt_9{
+	background-position:0 -196px !important;
 }
-.rt_8{
-	background-position:0 -176px !important;
+.average.rt_8{
+	background-position:0 -174px !important;
 }
-.rt_7{
-	background-position:0 -154px !important;
+.average.rt_7{
+	background-position:0 -152px !important;
 }
-.rt_6{
-	background-position:0 -132px !important;
+.average.rt_6{
+	background-position:0 -130px !important;
 }
-.rt_5{
-	background-position:0 -110px !important;
+.average.rt_5{
+	background-position:0 -108px !important;
 }
-.rt_4{
-	background-position:0 -88px !important;
+.average.rt_4{
+	background-position:0 -86px !important;
 }
-.rt_3{
-	background-position:0 -66px !important;
+.average.rt_3{
+	background-position:0 -64px !important;
 }
-.rt_2{
-	background-position:0 -44px !important;
+.average.rt_2{
+	background-position:0 -42px !important;
 }
-.rt_1{
-	background-position:0 -22px !important;
+.average.rt_1{
+	background-position:0 -20px !important;
 }
-.rt_0{
+.average.rt_0{
+}
+
+/* Eigene Bewertung */
+div.ja_test.rating.own{
+	width:100px;
+	height:18px;
+	background:url(../img/rating_stars.png) transparent;
+}
+.own.rt_10{
+	background-position:-100px -218px !important;
+}
+.own.rt_9{
+	background-position:-100px -196px !important;
+}
+.own.rt_8{
+	background-position:-100px -174px !important;
+}
+.own.rt_7{
+	background-position:-100px -152px !important;
+}
+.own.rt_6{
+	background-position:-100px -1302px !important;
+}
+.own.rt_5{
+	background-position:-100px -108px !important;
+}
+.own.rt_4{
+	background-position:-100px -86px !important;
+}
+.own.rt_3{
+	background-position:-100px -64px !important;
+}
+.own.rt_2{
+	background-position:-100px -42px !important;
+}
+.own.rt_1{
+	background-position:-100px -20px !important;
+}
+.own.rt_0{
+	background-position:-100px 0 !important;
+}
+
+/* Eigene Bewertung setzen */
+div.ja_test.rating.own span.rs{
+	margin:0px;
+	padding:0px;
+	border:0;
+	width:9px;
+	heigth:19px;
+	float:left;
 }

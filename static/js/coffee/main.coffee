@@ -210,8 +210,14 @@ jQuery ->
           .empty()
           .append movieSingleView.render().el
 
+  handleStarRating = ->
+  $('.rs').click ->
+    alert "adasd"
+
   $ ->
     window.app = new Router()
 
     Backbone.history.start
       pushstate: true
+      
+    handleStarRating()
