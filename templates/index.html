@@ -3,8 +3,10 @@
 <head>
   <meta charset="utf-8">
   <title>Filmverwaltung</title>
+  
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
   <link rel="stylesheet/less" href="{{ url_for('static', filename='css/style.less') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ja.css') }}">
 </head>
 <body>
   <div id="container"></div>
@@ -69,7 +71,9 @@
         <p><%= cast %></p>
         <hr>
         <h4>Rating</h4>
-        <p><%= vote_average %><% if(runtime !== 'not available') { %>/10<% } %></p>
+		<div class="ja_test rating rt_<%= Math.round(vote_average) %>"
+			title="<%= vote_average %><% if(runtime !== 'not available') { %>/10<% } %>"></div>
+		<!-- Mehr -->
       </div>
     </div>
   </script>
@@ -85,7 +89,5 @@
 
   <!-- main application -->
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-
-  <script src="{{ url_for('static', filename='js/user.js') }}"></script>
 </body>
 </html>

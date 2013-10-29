@@ -1,0 +1,44 @@
+/**
+ * Zum Zusammenführen mit der Less-Datei.
+ */
+
+/* Sterne */
+div.ja_test.rating{
+	width:94px;
+	height:17px;
+	background:url(../img/rating_stars.png) transparent;
+}
+
+/* Einzelbewertungen */
+.rt_10{
+	background-position:0 -220px !important;
+}
+.rt_9{
+	background-position:0 -198px !important;
+}
+.rt_8{
+	background-position:0 -176px !important;
+}
+.rt_7{
+	background-position:0 -154px !important;
+}
+.rt_6{
+	background-position:0 -132px !important;
+}
+.rt_5{
+	background-position:0 -110px !important;
+}
+.rt_4{
+	background-position:0 -88px !important;
+}
+.rt_3{
+	background-position:0 -66px !important;
+}
+.rt_2{
+	background-position:0 -44px !important;
+}
+.rt_1{
+	background-position:0 -22px !important;
+}
+.rt_0{
+}
