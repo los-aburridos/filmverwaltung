@@ -246,16 +246,6 @@ jQuery ->
         ($ '#container')
           .empty()
           .append movieSingleView.render().el
-          
-  connectToParse = ->
-	Parse.initialize "sNPHcU6shFITOpT3GnW1KlHGgfjT3YYmpnLQSlPZ", "KGqWWTnBuRXDwrHW2KIecQYel0ZqR6J00jF7wZjY"
-	TestObject = Parse.Object.extend("TestObject")
-	testObject = new TestObject()
-	testObject.save
-	  foo: "bar"
-	,
-	  success: (object) ->
-	    #alert "yay! it worked"
 
   $ ->
     window.app = new Router()
@@ -263,6 +253,24 @@ jQuery ->
     Backbone.history.start
       pushstate: true
       
-    connectToParse
-      
+    connectToParse()
+    handleStarRating()
+    
+  connectToParse = ->	
+	Parse.initialize('sNPHcU6shFITOpT3GnW1KlHGgfjT3YYmpnLQSlPZ','KGqWWTnBuRXDwrHW2KIecQYel0ZqR6J00jF7wZjY');
+	TestObject = Parse.Object.extend("TestObject");
+	testObject = new TestObject();
+	testObject.save
+      foo: "bar",
+	  success: (object) ->
+	    alert "yay! it worked"
+	    
+  handleStarRating = ->
+    iLastId = 0
+    $(document).on "mouseenter", ".rs", ->
+      iLastId = $(this).attr("id")
+      $(".own").addClass "rt_" + iLastId
+  
+    $(document).on "mouseleave", ".rs", ->
+      $(".own").removeClass "rt_" + iLastId      
     
