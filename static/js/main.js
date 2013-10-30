@@ -4,7 +4,7 @@
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   jQuery(function() {
-    var handleStarRating, _ref, _ref1, _ref2, _ref3, _ref4, _ref5;
+    var _ref, _ref1, _ref2, _ref3, _ref4, _ref5;
     window.Movie = (function(_super) {
       __extends(Movie, _super);
 
@@ -344,16 +344,11 @@
       return Router;
 
     })(Backbone.Router);
-    handleStarRating = function() {};
-    $('.rs').click(function() {
-      return alert("adasd");
-    });
     return $(function() {
       window.app = new Router();
-      Backbone.history.start({
+      return Backbone.history.start({
         pushstate: true
       });
-      return handleStarRating();
     });
   });
 
