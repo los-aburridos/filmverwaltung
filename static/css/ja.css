@@ -1,0 +1,94 @@
+/**
+ * Zum Zusammenführen mit der Less-Datei.
+ */
+
+/* Sterne */
+div.ja_test.rating.average{
+	width:100px;
+	height:18px;
+	background:url(../img/rating_stars.png) transparent;
+}
+
+/* Einzelbewertungen */
+.average.rt_10{
+	background-position:0 -218px !important;
+}
+.average.rt_9{
+	background-position:0 -196px !important;
+}
+.average.rt_8{
+	background-position:0 -174px !important;
+}
+.average.rt_7{
+	background-position:0 -152px !important;
+}
+.average.rt_6{
+	background-position:0 -130px !important;
+}
+.average.rt_5{
+	background-position:0 -108px !important;
+}
+.average.rt_4{
+	background-position:0 -86px !important;
+}
+.average.rt_3{
+	background-position:0 -64px !important;
+}
+.average.rt_2{
+	background-position:0 -42px !important;
+}
+.average.rt_1{
+	background-position:0 -20px !important;
+}
+.average.rt_0{
+}
+
+/* Eigene Bewertung */
+div.ja_test.rating.own{
+	width:100px;
+	height:18px;
+	background:url(../img/rating_stars.png) transparent;
+}
+.own.rt_10{
+	background-position:-100px -218px !important;
+}
+.own.rt_9{
+	background-position:-100px -196px !important;
+}
+.own.rt_8{
+	background-position:-100px -174px !important;
+}
+.own.rt_7{
+	background-position:-100px -152px !important;
+}
+.own.rt_6{
+	background-position:-100px -1302px !important;
+}
+.own.rt_5{
+	background-position:-100px -108px !important;
+}
+.own.rt_4{
+	background-position:-100px -86px !important;
+}
+.own.rt_3{
+	background-position:-100px -64px !important;
+}
+.own.rt_2{
+	background-position:-100px -42px !important;
+}
+.own.rt_1{
+	background-position:-100px -20px !important;
+}
+.own.rt_0{
+	background-position:-100px 0 !important;
+}
+
+/* Eigene Bewertung setzen */
+div.ja_test.rating.own span.rs{
+	margin:0px;
+	padding:0px;
+	border:0;
+	width:9px;
+	heigth:19px;
+	float:left;
+}

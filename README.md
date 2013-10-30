@@ -12,4 +12,4 @@ pip install -r requirements.txt
 ve\scripts\python runserver.py
 
 * Coffee script umwandeln
-ve\node.exe ve\node_modules\coffcript\bin\coffee -c -o static\js -w static\js\coffee\
+ve\node ve\node_modules\coffee-script\bin\coffee -c -o static\js -w static\js\coffee

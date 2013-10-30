@@ -3,8 +3,11 @@
 <head>
   <meta charset="utf-8">
   <title>Filmverwaltung</title>
+  
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
   <link rel="stylesheet/less" href="{{ url_for('static', filename='css/style.less') }}">
+  
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ja.css') }}">
 </head>
 <body>
   <div id="container"></div>
@@ -88,7 +91,17 @@
         <p><%= cast %></p>
         <hr>
         <h4>Rating</h4>
-        <p><%= vote_average %><% if(runtime !== 'not available') { %>/10<% } %></p>
+		<div class="ja_test rating average rt_<%= Math.round(vote_average) %>"
+			title="<%= vote_average %><% if(runtime !== 'not available') { %>/10<% } %>"></div>
+
+		<div class="ja_test rating own rt_<%= Math.round(vote_average) %>">
+			<% _(11).times(function(n){ %>
+				<span class="rs" id="<%= n %>">&nbsp;</span>
+			<% }); %>
+			<div class="clearfix"></div>
+		</div>
+
+		<!-- Mehr -->
       </div>
     </div>
   </script>
@@ -104,7 +117,7 @@
 
   <!-- main application -->
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-
-  <script src="{{ url_for('static', filename='js/user.js') }}"></script>
+  
+  <script type="text/javascript" src="{{ url_for('static', filename='js/ja.js') }}"></script>
 </body>
 </html>
