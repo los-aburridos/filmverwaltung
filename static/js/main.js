@@ -48,8 +48,8 @@
 
       DecoratedMovie.prototype.fetchDataFromTMDb = function() {
         var deferred, deferreds, that, urls, _tmdb_id;
-        _tmdb_id = this.movie.get('_tmdb_id');
         that = this;
+        _tmdb_id = this.movie.get('_tmdb_id');
         if (_tmdb_id) {
           urls = ["http://api.themoviedb.org/3/configuration?api_key=b8c58e84a6add62d174b2aa7421365be", "http://api.themoviedb.org/3/movie/" + _tmdb_id + "?api_key=b8c58e84a6add62d174b2aa7421365be", "http://api.themoviedb.org/3/movie/" + _tmdb_id + "/casts?api_key=b8c58e84a6add62d174b2aa7421365be"];
           deferreds = $.map(urls, function(url) {
@@ -106,6 +106,36 @@
 
       Movies.prototype.url = '/api/movies';
 
+      Movies.prototype.sortAttribute = '_id';
+
+      Movies.prototype.sortDirection = 1;
+
+      Movies.prototype.comparator = function(a, b) {
+        a = a.get(this.sortAttribute);
+        b = b.get(this.sortAttribute);
+        if (a === b) {
+          return;
+        }
+        if (this.sortDirection === 1) {
+          if (a > b) {
+            return 1;
+          } else {
+            return -1;
+          }
+        } else {
+          if (a < b) {
+            return 1;
+          } else {
+            return -1;
+          }
+        }
+      };
+
+      Movies.prototype.sortByAttribute = function(attr) {
+        this.sortAttribute = attr;
+        return this.sort();
+      };
+
       return Movies;
 
     })(Backbone.Collection);
@@ -124,6 +154,8 @@
       };
 
       MovieView.prototype.initialize = function() {
+        var that;
+        that = this;
         this.listenTo(this.model, 'change', this.render);
         this.listenTo(this.model, 'destroy', this.remove);
         return this.template = _.template(($('#movie-view-template')).html());
@@ -154,39 +186,41 @@
       MoviesView.prototype.className = 'row';
 
       MoviesView.prototype.events = {
+        'click .sortable': 'sort',
         'keypress .submit': 'submit'
       };
 
       MoviesView.prototype.initialize = function() {
-        this.listenTo(this.collection, 'reset', this.render);
         this.listenTo(this.collection, 'change', this.render);
+        this.listenTo(this.collection, 'reset', this.render);
+        this.listenTo(this.collection, 'sort', this.render);
         return this.template = _.template(($('#movies-view-template')).html());
       };
 
       MoviesView.prototype.render = function() {
-        var tbody;
+        var $tbody;
         ($(this.el)).html(this.template({}));
-        tbody = this.$('tbody');
+        $tbody = this.$('tbody');
         this.collection.each(function(movie) {
           var movieView;
           movieView = new MovieView({
             model: movie
           });
-          return tbody.append(movieView.render().el);
+          return $tbody.append(movieView.render().el);
         });
         return this;
       };
 
       MoviesView.prototype.submit = function(e) {
-        var all, input, rawDescription, _ref4, _title, _year;
-        input = this.$('.submit');
+        var $input, all, rawDescription, _ref4, _title, _year;
+        $input = this.$('.submit');
         if (e.which !== 13) {
           return;
         }
-        rawDescription = input.val().trim();
+        rawDescription = $input.val().trim();
         _ref4 = this.parseRawDescription(rawDescription), all = _ref4[0], _title = _ref4[1], _year = _ref4[2];
         this.fetchTMDbId(_year, _title);
-        return input.val('');
+        return $input.val('');
       };
 
       MoviesView.prototype.parseRawDescription = function(rawDescription) {
@@ -217,6 +251,18 @@
           _year: _year,
           _title: _title
         });
+      };
+
+      MoviesView.prototype.sort = function(e) {
+        var $el, attr;
+        $el = $(e.currentTarget);
+        attr = $el.data('val');
+        if (attr === this.collection.sortAttribute) {
+          this.collection.sortDirection *= -1;
+        } else {
+          this.collection.sortDirection = 1;
+        }
+        return this.collection.sortByAttribute(attr);
       };
 
       return MoviesView;

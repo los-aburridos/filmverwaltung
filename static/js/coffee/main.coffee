@@ -27,8 +27,9 @@ jQuery ->
         json
 
     fetchDataFromTMDb: ->
-      _tmdb_id = @movie.get '_tmdb_id'
       that = @
+
+      _tmdb_id = @movie.get '_tmdb_id'
 
       if _tmdb_id
         urls = [
@@ -70,7 +71,27 @@ jQuery ->
 
   class window.Movies extends Backbone.Collection
     model: Movie
+
     url: '/api/movies'
+
+    sortAttribute: '_id'
+    sortDirection: 1
+
+    comparator: (a, b) ->
+      a = a.get @sortAttribute
+      b = b.get @sortAttribute
+
+      if a is b
+        return
+
+      if @sortDirection is 1
+        if a > b then 1 else -1
+      else
+        if a < b then 1 else -1
+
+    sortByAttribute: (attr) ->
+      @sortAttribute = attr
+      @sort()
 
   class window.MovieView extends Backbone.View
     tagName: 'tr'
@@ -79,6 +100,8 @@ jQuery ->
       'click .remove': 'clear'
 
     initialize: ->
+      that = @
+
       @listenTo @model, 'change', @render
       @listenTo @model, 'destroy', @remove
 
@@ -98,40 +121,42 @@ jQuery ->
     className: 'row'
 
     events:
+      'click .sortable': 'sort'
       'keypress .submit': 'submit'
 
     initialize: ->
-      @listenTo @collection, 'reset', @render
       @listenTo @collection, 'change', @render
+      @listenTo @collection, 'reset', @render
+      @listenTo @collection, 'sort', @render
 
       @template = _.template ($ '#movies-view-template').html()
 
     render: ->
       ($ @el).html(@template {})
 
-      tbody = @$ 'tbody'
+      $tbody = @$ 'tbody'
 
       @collection.each (movie) ->
         movieView = new MovieView
           model: movie
 
-        tbody.append movieView.render().el
+        $tbody.append movieView.render().el
 
       @
 
     # TODO: validation
     submit: (e) ->
-      input = @$ '.submit'
+      $input = @$ '.submit'
 
       if e.which isnt 13
         return
 
-      rawDescription = input.val().trim()
+      rawDescription = $input.val().trim()
       [all, _title, _year] = @parseRawDescription rawDescription
 
       @fetchTMDbId _year, _title
 
-      input.val ''
+      $input.val ''
 
     parseRawDescription: (rawDescription) ->
       pattern = ///
@@ -144,6 +169,7 @@ jQuery ->
 
     fetchTMDbId: (_year, _title) ->
       that = @
+
       url = "http://api.themoviedb.org/3/search/movie
 ?api_key=b8c58e84a6add62d174b2aa7421365be
 &query=#{_title}
@@ -158,6 +184,17 @@ jQuery ->
         _tmdb_id: _tmdb_id
         _year: _year
         _title: _title
+
+    sort: (e) ->
+      $el = $ e.currentTarget
+      attr = $el.data 'val'
+
+      if attr is @collection.sortAttribute
+        @collection.sortDirection *= -1
+      else
+        @collection.sortDirection = 1
+
+      @collection.sortByAttribute attr
 
   class window.MovieSingleView extends Backbone.View
     tagName: 'div'
