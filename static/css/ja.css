@@ -4,9 +4,10 @@
 
 /* Sterne */
 div.ja_test.rating.average{
-	width:100px;
-	height:18px;
+	width:94px;
+	height:20px;
 	background:url(../img/rating_stars.png) transparent;
+	border:1px solid red;
 }
 
 /* Einzelbewertungen */
@@ -38,7 +39,7 @@ div.ja_test.rating.average{
 	background-position:0 -42px !important;
 }
 .average.rt_1{
-	background-position:0 -20px !important;
+	background-position:0 -19px !important;
 }
 .average.rt_0{
 }
@@ -46,7 +47,7 @@ div.ja_test.rating.average{
 /* Eigene Bewertung */
 div.ja_test.rating.own{
 	width:100px;
-	height:18px;
+	height:20px;
 	background:url(../img/rating_stars.png) transparent;
 }
 .own.rt_10{
@@ -89,6 +90,6 @@ div.ja_test.rating.own span.rs{
 	padding:0px;
 	border:0;
 	width:9px;
-	heigth:19px;
+	height:19px;
 	float:left;
 }

@@ -3,8 +3,8 @@ $(document).ready(function(){
 });
 
 function handleStarRating(){
-	$('.rs').hover(function(){
+	$(document).on('mouseenter','.rs', function(){
+		//console.log("A");
 		$('.own').addClass("rt_" + $('.rs').attr('id'));
 	});
-	//alert('handleStarRating');
 };
