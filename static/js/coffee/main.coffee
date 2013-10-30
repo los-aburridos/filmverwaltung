@@ -246,9 +246,23 @@ jQuery ->
         ($ '#container')
           .empty()
           .append movieSingleView.render().el
+          
+  connectToParse = ->
+	Parse.initialize "sNPHcU6shFITOpT3GnW1KlHGgfjT3YYmpnLQSlPZ", "KGqWWTnBuRXDwrHW2KIecQYel0ZqR6J00jF7wZjY"
+	TestObject = Parse.Object.extend("TestObject")
+	testObject = new TestObject()
+	testObject.save
+	  foo: "bar"
+	,
+	  success: (object) ->
+	    #alert "yay! it worked"
 
   $ ->
     window.app = new Router()
 
     Backbone.history.start
       pushstate: true
+      
+    connectToParse
+      
+    
