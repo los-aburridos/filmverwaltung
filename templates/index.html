@@ -94,23 +94,9 @@
 		<div class="ja_test rating average rt_<%= Math.round(vote_average) %>"
 			title="<%= vote_average %><% if(runtime !== 'not available') { %>/10<% } %>"></div>
 
-<!--
-		<div class="ja_test rating average rt_0"></div>
-<div class="ja_test rating average rt_1"></div>
-<div class="ja_test rating average rt_2"></div>
-<div class="ja_test rating average rt_3"></div>
-<div class="ja_test rating average rt_4"></div>
-<div class="ja_test rating average rt_5"></div>
-<div class="ja_test rating average rt_6"></div>
-<div class="ja_test rating average rt_7"></div>
-<div class="ja_test rating average rt_8"></div>
-<div class="ja_test rating average rt_9"></div>
-<div class="ja_test rating average rt_10"></div>
--->
-
-		<div class="ja_test rating own rt_<%= Math.round(vote_average) %>">
-			<% _(11).times(function(n){ %>
-				<span class="rs" id="<%= n %>">&nbsp;</span>
+		<div class="ja_test rating own">
+			<% _(10).times(function(n){ %>
+				<span class="rs" id="<%= n+1 %>">&nbsp;</span>
 			<% }); %>
 			<div class="clearfix"></div>
 		</div>

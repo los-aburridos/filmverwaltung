@@ -5,43 +5,43 @@
 /* Sterne */
 div.ja_test.rating.average{
 	width:94px;
-	height:20px;
+	height:19px;
 	background:url(../img/rating_stars.png) transparent;
-	border:1px solid red;
 }
 
 /* Einzelbewertungen */
 .average.rt_10{
-	background-position:0 -218px !important;
+	background-position:0 -221px !important;
 }
 .average.rt_9{
-	background-position:0 -196px !important;
+	background-position:0 -199px !important;
 }
 .average.rt_8{
-	background-position:0 -174px !important;
+	background-position:0 -177px !important;
 }
 .average.rt_7{
-	background-position:0 -152px !important;
+	background-position:0 -153px !important;
 }
 .average.rt_6{
-	background-position:0 -130px !important;
+	background-position:0 -131px !important;
 }
 .average.rt_5{
-	background-position:0 -108px !important;
+	background-position:0 -109px !important;
 }
 .average.rt_4{
-	background-position:0 -86px !important;
+	background-position:0 -87px !important;
 }
 .average.rt_3{
-	background-position:0 -64px !important;
+	background-position:0 -65px !important;
 }
 .average.rt_2{
-	background-position:0 -42px !important;
+	background-position:0 -44px !important;
 }
 .average.rt_1{
-	background-position:0 -19px !important;
+	background-position:0 -22px !important;
 }
 .average.rt_0{
+	background-position:0 0px !important;
 }
 
 /* Eigene Bewertung */
@@ -51,43 +51,43 @@ div.ja_test.rating.own{
 	background:url(../img/rating_stars.png) transparent;
 }
 .own.rt_10{
-	background-position:-100px -218px !important;
+	background-position:-100px -221px !important;
 }
 .own.rt_9{
-	background-position:-100px -196px !important;
+	background-position:-100px -199px !important;
 }
 .own.rt_8{
-	background-position:-100px -174px !important;
+	background-position:-100px -177px !important;
 }
 .own.rt_7{
-	background-position:-100px -152px !important;
+	background-position:-100px -153px !important;
 }
 .own.rt_6{
-	background-position:-100px -1302px !important;
+	background-position:-100px -131px !important;
 }
 .own.rt_5{
-	background-position:-100px -108px !important;
+	background-position:-100px -109px !important;
 }
 .own.rt_4{
-	background-position:-100px -86px !important;
+	background-position:-100px -87px !important;
 }
 .own.rt_3{
-	background-position:-100px -64px !important;
+	background-position:-100px -65px !important;
 }
 .own.rt_2{
-	background-position:-100px -42px !important;
+	background-position:-100px -44px !important;
 }
 .own.rt_1{
-	background-position:-100px -20px !important;
+	background-position:-100px -22px !important;
 }
 .own.rt_0{
-	background-position:-100px 0 !important;
+	background-position::-100px 0px !important;
 }
 
 /* Eigene Bewertung setzen */
 div.ja_test.rating.own span.rs{
-	margin:0px;
-	padding:0px;
+	margin:0;
+	padding:0;
 	border:0;
 	width:9px;
 	height:19px;

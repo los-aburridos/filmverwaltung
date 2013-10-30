@@ -3,8 +3,16 @@ $(document).ready(function(){
 });
 
 function handleStarRating(){
+	var iLastId = 0;
+	
 	$(document).on('mouseenter','.rs', function(){
-		//console.log("A");
-		$('.own').addClass("rt_" + $('.rs').attr('id'));
+		console.log("Klasse anfügen");
+		
+		iLastId = $(this).attr('id');
+		$('.own').addClass("rt_" + iLastId);
+	});
+	$(document).on('mouseleave','.rs', function(){
+		console.log("Klasse wegnehmen");
+		$('.own').removeClass("rt_" + iLastId);
 	});
 };
