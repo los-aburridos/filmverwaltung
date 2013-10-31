@@ -1,6 +1,11 @@
 /**
  * Zum Zusammenführen mit der Less-Datei.
  */
+ 
+h1{
+	display:block;
+	float:left;
+}
 
 /* Sterne */
 div.ja_test.rating.average{
@@ -96,5 +101,5 @@ div.ja_test.rating.own span.rs{
 /* Buttons (Home, Anmeldung) */
 button#ja_home_btn{}
 button#ja_login_btn{
-	/*float:right;*/
+	float:right;
 }

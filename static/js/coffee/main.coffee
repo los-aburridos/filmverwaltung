@@ -269,11 +269,13 @@ jQuery ->
 	#Parse.initialize('sNPHcU6shFITOpT3GnW1KlHGgfjT3YYmpnLQSlPZ','KGqWWTnBuRXDwrHW2KIecQYel0ZqR6J00jF7wZjY'); #EB
 	Parse.initialize('v9oyjDoQ8pSauSj0PlSy7DvoR2VlHfxBHm0fJLBK','29KiuVrfWBhUnwRrXrs6L2aoHmYi9E13rxEUFdyX'); #JA
 	TestObject = Parse.Object.extend("TestObject");
+	console.log("Start: Parse")
 	testObject = new TestObject();
 	testObject.save
       foo: "bar",
 	  success: (object) ->
 	    alert "yay! it worked"
+	console.log("Ende: Parse")
 	    
   handleStarRating = ->
     iLastId = 0
@@ -298,5 +300,3 @@ jQuery ->
 	$(document).on 'click','#ja_home_btn', ->
 	  window.location.href='/'
 	
-	# Login-Button
-	window.sLoginButton = '<button type="button" id="ja_login_btn" class="btn btn-info"><span class="glyphicon glyphicon-user"></span></button><div class="clearfix"></div>'

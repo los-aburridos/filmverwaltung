@@ -16,7 +16,7 @@
     <div class="col-md-8 col-md-offset-2">
       <h1>Movie Palace</h1>
 	  <div class="ja_head">
-		<!-- <%- sLoginButton %> -->
+		<button type="button" id="ja_login_btn" class="btn btn-info"><span class="glyphicon glyphicon-user"></span></button><div class="clearfix"></div>
 	  </div>
       <hr class="large">
       <div class="btn-group btn-group-sm pull-right">
@@ -81,7 +81,7 @@
 		  <span class="glyphicon glyphicon-home"></span>
 		</button>
 
-		<!-- <%- sLoginButton %> -->
+		<button type="button" id="ja_login_btn" class="btn btn-info"><span class="glyphicon glyphicon-user"></span></button><div class="clearfix"></div>
 
         <% if (poster_path !== 'not available') { %>
           <img src="<%= images.base_url %>original<%= poster_path %>" class="img-responsive" alt="<%= _title + '-Filmplakat' %>">
