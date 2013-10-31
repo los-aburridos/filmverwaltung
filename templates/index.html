@@ -73,6 +73,9 @@
   <script type="text/template" id="movie-single-view-template">
     <div class="col-md-8 col-md-offset-2">
       <div class="col-md-6">
+		<button type="button" id="ja_home_btn" class="btn btn-info">
+		  <span class="glyphicon glyphicon-home"></span>
+		</button>
         <% if (poster_path !== 'not available') { %>
           <img src="<%= images.base_url %>original<%= poster_path %>" class="img-responsive" alt="">
         <% } else { %>

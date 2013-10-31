@@ -253,8 +253,16 @@ jQuery ->
     Backbone.history.start
       pushstate: true
       
+    # Parse initialisieren
     connectToParse()
+    
+    # Bewertungs-Feature
     handleStarRating()
+    
+    # Nach Hause navigieren
+    handleHomeButton()
+    
+    # Autostart-Ende
     
   connectToParse = ->	
 	Parse.initialize('sNPHcU6shFITOpT3GnW1KlHGgfjT3YYmpnLQSlPZ','KGqWWTnBuRXDwrHW2KIecQYel0ZqR6J00jF7wZjY');
@@ -282,3 +290,7 @@ jQuery ->
         #alert "Jetzt wird gespeichert:" + iLastId
       else
         $(".own").removeClass "rt_" + iLastId
+        
+  handleHomeButton = ->
+	$(document).on 'click','#ja_home_btn', ->
+	  window.location.href='/'
