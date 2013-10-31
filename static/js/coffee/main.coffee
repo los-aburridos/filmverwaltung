@@ -267,10 +267,18 @@ jQuery ->
 	    
   handleStarRating = ->
     iLastId = 0
+    blClicked = false;
+    
     $(document).on "mouseenter", ".rs", ->
       iLastId = $(this).attr("id")
+      blClicked = false;
       $(".own").addClass "rt_" + iLastId
+      
+    $(document).on "click", ".rs", ->
+      blClicked = true
   
     $(document).on "mouseleave", ".rs", ->
-      $(".own").removeClass "rt_" + iLastId      
-    
+      if blClicked
+        #alert "Jetzt wird gespeichert:" + iLastId
+      else
+        $(".own").removeClass "rt_" + iLastId

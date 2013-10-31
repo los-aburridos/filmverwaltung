@@ -6,7 +6,7 @@
 div.ja_test.rating.average{
 	width:94px;
 	height:19px;
-	background:url(../img/rating_stars.png) transparent;
+	background:url(../img/rating_stars.png) transparent no-repeat;
 }
 
 /* Einzelbewertungen */
@@ -47,17 +47,17 @@ div.ja_test.rating.average{
 /* Eigene Bewertung */
 div.ja_test.rating.own{
 	width:100px;
-	height:20px;
-	background:url(../img/rating_stars.png) transparent;
+	height:19px;
+	background:url(../img/rating_stars.png) transparent no-repeat;
 }
 .own.rt_10{
-	background-position:-100px -221px !important;
+	background-position:-100px -220px !important;
 }
 .own.rt_9{
-	background-position:-100px -199px !important;
+	background-position:-100px -198px !important;
 }
 .own.rt_8{
-	background-position:-100px -177px !important;
+	background-position:-100px -176px !important;
 }
 .own.rt_7{
 	background-position:-100px -153px !important;
@@ -89,7 +89,7 @@ div.ja_test.rating.own span.rs{
 	margin:0;
 	padding:0;
 	border:0;
-	width:9px;
+	width:10px;
 	height:19px;
 	float:left;
 }
