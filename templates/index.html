@@ -15,6 +15,9 @@
   <script type="text/template" id="movies-view-template">
     <div class="col-md-8 col-md-offset-2">
       <h1>Movie Palace</h1>
+	  <div class="ja_head">
+		<!-- <%- sLoginButton %> -->
+	  </div>
       <hr class="large">
       <div class="btn-group btn-group-sm pull-right">
         <button type="button" class="btn btn-info">
@@ -73,13 +76,17 @@
   <script type="text/template" id="movie-single-view-template">
     <div class="col-md-8 col-md-offset-2">
       <div class="col-md-6">
+
 		<button type="button" id="ja_home_btn" class="btn btn-info">
 		  <span class="glyphicon glyphicon-home"></span>
 		</button>
+
+		<!-- <%- sLoginButton %> -->
+
         <% if (poster_path !== 'not available') { %>
-          <img src="<%= images.base_url %>original<%= poster_path %>" class="img-responsive" alt="">
+          <img src="<%= images.base_url %>original<%= poster_path %>" class="img-responsive" alt="<%= _title + '-Filmplakat' %>">
         <% } else { %>
-          <img src="{{ url_for('static', filename='img/default.png') }}" class="img-responsive" alt="">
+          <img src="{{ url_for('static', filename='img/default.png') }}" class="img-responsive" alt="Kein Plakat verf&uuml;gbar">
         <% } %>
       </div>
       <div class="col-md-6">
