@@ -275,7 +275,7 @@ jQuery ->
       foo: "bar",
 	  success: (object) ->
 	    alert "yay! it worked"
-	console.log("Ende: Parse")
+		console.log("Ende: Parse")
 	    
   handleStarRating = ->
     iLastId = 0
