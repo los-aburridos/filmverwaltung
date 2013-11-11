@@ -14,6 +14,7 @@
   
   <!--
   	Achtung, Baustelle!
+  	Noch kein Code.
   -->
 
   <script type="text/template" id="movies-view-template">
@@ -69,57 +70,6 @@
     </div>
   </script>
 
-    <!-- <td><a data-toggle="modal" href="#modalRemove"><span class="glyphicon glyphicon-remove pull-right remove"></span></a></td> -->
-  <script type="text/template" id="movie-view-template">
-    <td><%= _year %></td>
-    <td><a href="#/movies/<%= _id %>"><%= _title %></a></td>
-    <td><%= _watched %><td>
-    <td><span class="glyphicon glyphicon-remove pull-right remove"></span></td>
-  </script>
-
-  <script type="text/template" id="movie-single-view-template">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="col-md-6">
-
-		<button type="button" id="ja_home_btn" class="btn btn-info">
-		  <span class="glyphicon glyphicon-home"></span>
-		</button>
-
-		<button type="button" id="ja_login_btn" class="btn btn-info"><span class="glyphicon glyphicon-user"></span></button><div class="clearfix"></div>
-
-        <% if (poster_path !== 'not available') { %>
-          <img src="<%= images.base_url %>original<%= poster_path %>" class="img-responsive" alt="<%= _title + '-Filmplakat' %>">
-        <% } else { %>
-          <img src="{{ url_for('static', filename='img/default.png') }}" class="img-responsive" alt="Kein Plakat verf&uuml;gbar">
-        <% } %>
-      </div>
-      <div class="col-md-6">
-        <h2><%= _title %> <span class="date">(<%= _year %>)</h2>
-        <h5 class="text-muted"><%= original_title %> (original title)</h5>
-        <small><%= runtime %><% if(runtime !== 'not available') { %> min<% } %> - <%= genres %> - <%= release_date %></small>
-        <hr>
-        <h4>Overview</h4>
-        <p><%= overview %></p>
-        <hr>
-        <h4>Actors</h4>
-        <p><%= cast %></p>
-        <hr>
-        <h4>Rating</h4>
-		<div class="ja_test rating average rt_<%= Math.round(vote_average) %>"
-			title="<%= vote_average %><% if(runtime !== 'not available') { %>/10<% } %>"></div>
-
-		<div class="ja_test rating own">
-			<% _(10).times(function(n){ %>
-				<span class="rs" id="<%= n+1 %>">&nbsp;</span>
-			<% }); %>
-			<div class="clearfix"></div>
-		</div>
-
-		<!-- Mehr -->
-      </div>
-    </div>
-  </script>
-
   <!-- Parse -->
   <script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
   
@@ -133,8 +83,7 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.4.1/less.min.js"></script>
 
   <!-- main application -->
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-  
-  <script src="{{ url_for('static', filename='js/ja.js') }}"></script>
+  <script src="static/js/main.js"></script>  
+  <script src="static/js/ja.js"></script>
 </body>
 </html>
