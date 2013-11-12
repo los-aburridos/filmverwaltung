@@ -29,7 +29,7 @@ hr.small  { border-top: 1px solid #000; }
   font-size: 14px;
 }
 
-/* rating */
+/* rating
 .rating {
   unicode-bidi: bidi-override;
   direction: rtl;
@@ -49,3 +49,4 @@ hr.small  { border-top: 1px solid #000; }
   content: "\2605";
   position: absolute;
 }
+ */

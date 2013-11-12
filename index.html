@@ -107,12 +107,19 @@
         <hr>
         <h4>Rating</h4>
 
-		<div {{bindAttr class=":ja_test :rating :average voteAverageStyle" title="voteAverageOfTen"}}></div>
-
-		<div class="ja_test rating own">
-			
-			
-
+			<div {{bindAttr class=":ja_test :rating :average voteAverageStyle" title="voteAverageOfTen"}}></div>
+			<div class="ja_test rating own">
+				<span class="rs" id="1">&nbsp;</span>
+				<span class="rs" id="2">&nbsp;</span>
+				<span class="rs" id="3">&nbsp;</span>
+				<span class="rs" id="4">&nbsp;</span>
+				<span class="rs" id="5">&nbsp;</span>
+				<span class="rs" id="6">&nbsp;</span>
+				<span class="rs" id="7">&nbsp;</span>
+				<span class="rs" id="8">&nbsp;</span>
+				<span class="rs" id="9">&nbsp;</span>
+				<span class="rs" id="10">&nbsp;</span>
+			</div>
 			<div class="clearfix"></div>
 		</div>
 
@@ -185,12 +192,12 @@
   </script>
 
   <script type="text/x-handlebars" id="components/star-rating">
-    {{#each star in stars}}
-      <span {{bindAttr class="star.active"}} {{action '' star.value}}>☆</span>
-    {{/each}}
+		<div class="ja_test rating own rt_5"></div>
   </script>
 
   <script src="js/libs/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
   <script src="js/libs/bootstrap.min.js"></script>
   <script src="js/libs/handlebars.min.js"></script>
   <script src="js/libs/ember.min.js"></script>

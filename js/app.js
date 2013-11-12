@@ -138,6 +138,15 @@ App.Movie = DS.Model.extend({
 	return this.get('default');	
   }.property('details'),
   
+  maxRating: function() {
+	if(this.get('details')) {
+	  var aSteps = [{},{}];
+	  
+	  return aSteps;
+	};
+	return this.get('default');	
+  }
+  
 });
 
 // router
