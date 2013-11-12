@@ -1,0 +1,95 @@
+/**
+ * Zum Zusammenführen mit style.css.
+ */
+
+/* Sterne */
+div.ja_test.rating.average{
+	width:94px;
+	height:19px;
+	background:url(../img/rating_stars.png) transparent no-repeat;
+}
+
+/* Einzelbewertungen */
+.average.rt_10{
+	background-position:0 -221px !important;
+}
+.average.rt_9{
+	background-position:0 -199px !important;
+}
+.average.rt_8{
+	background-position:0 -177px !important;
+}
+.average.rt_7{
+	background-position:0 -153px !important;
+}
+.average.rt_6{
+	background-position:0 -131px !important;
+}
+.average.rt_5{
+	background-position:0 -109px !important;
+}
+.average.rt_4{
+	background-position:0 -87px !important;
+}
+.average.rt_3{
+	background-position:0 -65px !important;
+}
+.average.rt_2{
+	background-position:0 -44px !important;
+}
+.average.rt_1{
+	background-position:0 -22px !important;
+}
+.average.rt_0{
+	background-position:0 0px !important;
+}
+
+/* Eigene Bewertung */
+div.ja_test.rating.own{
+	width:100px;
+	height:19px;
+	background:url(../img/rating_stars.png) transparent no-repeat;
+}
+.own.rt_10{
+	background-position:-100px -220px !important;
+}
+.own.rt_9{
+	background-position:-100px -198px !important;
+}
+.own.rt_8{
+	background-position:-100px -176px !important;
+}
+.own.rt_7{
+	background-position:-100px -153px !important;
+}
+.own.rt_6{
+	background-position:-100px -131px !important;
+}
+.own.rt_5{
+	background-position:-100px -109px !important;
+}
+.own.rt_4{
+	background-position:-100px -87px !important;
+}
+.own.rt_3{
+	background-position:-100px -65px !important;
+}
+.own.rt_2{
+	background-position:-100px -44px !important;
+}
+.own.rt_1{
+	background-position:-100px -22px !important;
+}
+.own.rt_0{
+	background-position::-100px 0px !important;
+}
+
+/* Eigene Bewertung setzen */
+div.ja_test.rating.own span.rs{
+	margin:0;
+	padding:0;
+	border:0;
+	width:10px;
+	height:19px;
+	float:left;
+}

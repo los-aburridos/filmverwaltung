@@ -118,12 +118,26 @@ App.Movie = DS.Model.extend({
 
   voteAverage: function() {
     if(this.get('details')) {
-      return this.get('details').vote_average
-        + '/10';
+      return this.get('details').vote_average;
     };
 
     return this.get('default');
-  }.property('details')
+  }.property('details'),
+  
+  voteAverageOfTen: function() {
+	if(this.get('details')) {
+		return this.get('details').vote_average + '/10';
+	};
+	return this.get('default');	
+  }.property('details'),
+  
+  voteAverageStyle: function() {
+	if(this.get('details')) {
+	  return 'rt_' + Math.round(this.get('details').vote_average);
+	};
+	return this.get('default');	
+  }.property('details'),
+  
 });
 
 // router
@@ -365,4 +379,8 @@ App.StarRatingComponent = Ember.Component.extend({
 
     this.set('stars', stars);
   }
+});
+
+$(document).ready(function(){
+	handleStarRating();
 });
