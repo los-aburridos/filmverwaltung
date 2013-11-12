@@ -232,7 +232,8 @@ App.MoviesIndexController = Ember.ArrayController.extend({
         if (unique) {
           var newMovie = this.store.createRecord('movie');
 
-          newMovie.set('rating', Math.floor(Math.random()*5));
+          newMovie.set('rating', Math.floor(Math.random()*10));
+          newMovie.set('ratingStyle', 8);
           newMovie.set('title', title);
           newMovie.set('watched', false);
           newMovie.set('year', year);
