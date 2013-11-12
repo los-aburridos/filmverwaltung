@@ -1,0 +1,51 @@
+body {
+  padding: 70px 0;
+}
+
+/* list view */
+hr.large  { border-top: 5px solid #000; }
+hr.medium { border-top: 3px solid #000; }
+hr.small  { border-top: 1px solid #000; }
+
+.clickable {
+  cursor: pointer;
+}
+
+.glyphicon-chevron-up,
+.glyphicon-chevron-down {
+  font-size: 10px;
+}
+
+.glyphicon-remove {
+  margin-left: 10px;
+}
+
+.watched {
+  color: #468847 !important;
+}
+
+/* details view */
+.date {
+  font-size: 14px;
+}
+
+/* rating */
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+
+.rating > span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+
+.rating > span:hover:before,
+.rating > span:hover ~ span:before,
+.rating > span.active:before,
+.rating > span.active ~ span:before {
+  content: "\2605";
+  position: absolute;
+}
