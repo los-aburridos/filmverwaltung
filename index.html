@@ -106,9 +106,9 @@
         <p>{{actors}}</p>
         <hr>
         <h4>Rating</h4>
-
+			<!-- Sterne -->
 			<div {{bindAttr class=":ja_test :rating :average voteAverageStyle" title="voteAverageOfTen"}}></div>
-			<div class="ja_test rating own">
+			<div class="ja_test rating own rt_8"><!-- letzte: bestehende Bewertung, wenn existiert -->
 				<span class="rs" id="1">&nbsp;</span>
 				<span class="rs" id="2">&nbsp;</span>
 				<span class="rs" id="3">&nbsp;</span>
@@ -192,7 +192,8 @@
   </script>
 
   <script type="text/x-handlebars" id="components/star-rating">
-		<div class="ja_test rating own rt_8"></div>
+	<!-- Sterne -->	
+	<div class="ja_test rating own rt_8"></div>
   </script>
 
   <script src="js/libs/jquery.min.js"></script>

@@ -12,8 +12,11 @@ handleStarRating = function() {
 	});
 	return $(document).on("mouseleave", ".rs", function() {
 		if (blClicked) {
-		}else{
-		return $(".own").removeClass("rt_" + iLastId);
-	}
+			alert("Bewertung setzen: " + iLastId);
+		}
+		else{
+			$('.own').removeClass('rt_' + iLastId);
+			$('.own').addClass('rt_' + 8); // Bestehende Bewertung, wenn vorhanden
+		}
 	});
  };
