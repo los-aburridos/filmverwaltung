@@ -71,7 +71,8 @@
             <td>{{#link-to 'movie' this}}{{title}}{{/link-to}}</td>
             <td><span {{bindAttr class=":clickable :glyphicon :glyphicon-ok :text-muted watched"}} {{action "toggleWatched" this}}></span></td>
             <td>
-              {{star-rating rating=rating}}
+				<!-- Sterne -->	
+				<div {{bindAttr class=":ja_test :rating :own ratingStyle"}}></div>
             </td>
             <td>
               <span class="clickable glyphicon glyphicon-remove pull-right" {{action "doDeleteMovie" this}}></span>
@@ -189,11 +190,6 @@
         </div>
       </div>
     </div>
-  </script>
-
-  <script type="text/x-handlebars" id="components/star-rating">
-	<!-- Sterne -->	
-	<div class="ja_test rating own rt_8"></div>
   </script>
 
   <script src="js/libs/jquery.min.js"></script>

@@ -17,6 +17,7 @@ App.Store = DS.Store.extend({
 App.Movie = DS.Model.extend({
 // App.Movie = ParseModel.extend({
   rating: DS.attr('number'),
+  ratingStyle: DS.attr('string'),
   title: DS.attr('string'),
   watched: DS.attr('boolean'),
   year: DS.attr('string'),
@@ -233,7 +234,7 @@ App.MoviesIndexController = Ember.ArrayController.extend({
           var newMovie = this.store.createRecord('movie');
 
           newMovie.set('rating', Math.floor(Math.random()*10));
-          newMovie.set('ratingStyle', 8);
+          newMovie.set('ratingStyle', 'rt_5');
           newMovie.set('title', title);
           newMovie.set('watched', false);
           newMovie.set('year', year);
