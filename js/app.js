@@ -17,7 +17,6 @@ App.Store = DS.Store.extend({
 App.Movie = DS.Model.extend({
 // App.Movie = ParseModel.extend({
   rating: DS.attr('number'),
-  ratingStyle: DS.attr('string'),
   title: DS.attr('string'),
   watched: DS.attr('boolean'),
   year: DS.attr('string'),
@@ -37,6 +36,15 @@ App.Movie = DS.Model.extend({
 
     return 'img/default.png';
   }.property('config', 'details'),
+
+  // Sterne
+  ratingStyle: function() {
+    if(this.get('details')) {
+      return 'rt_' + this.get('rating');
+    };
+
+    return this.get('default');
+  }.property('rating'),
 
   originalTitle: function() {
     if(this.get('details')) {
@@ -233,8 +241,10 @@ App.MoviesIndexController = Ember.ArrayController.extend({
         if (unique) {
           var newMovie = this.store.createRecord('movie');
 
-          newMovie.set('rating', Math.floor(Math.random()*10));
-          newMovie.set('ratingStyle', 'rt_5');
+          var iRating = Math.floor(Math.random()*10);
+          
+          newMovie.set('rating', iRating);
+          newMovie.set('ratingStyle', 'rt_' + iRating);
           newMovie.set('title', title);
           newMovie.set('watched', false);
           newMovie.set('year', year);
@@ -313,6 +323,9 @@ App.MoviesIndexController = Ember.ArrayController.extend({
   }
 });
 
+/**
+ * Request Movie Database
+ */
 App.MovieController = Ember.ObjectController.extend({
   contentObserver: function() {
     if (this.get('content')) {

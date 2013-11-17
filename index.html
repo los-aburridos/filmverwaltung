@@ -109,7 +109,7 @@
         <h4>Rating</h4>
 			<!-- Sterne -->
 			<div {{bindAttr class=":ja_test :rating :average voteAverageStyle" title="voteAverageOfTen"}}></div>
-			<div class="ja_test rating own rt_8"><!-- letzte: bestehende Bewertung, wenn existiert -->
+			<div {{bindAttr class=":ja_test :rating :own ratingStyle"}}><!-- letzte: bestehende Bewertung, wenn existiert -->
 				<span class="rs" id="1">&nbsp;</span>
 				<span class="rs" id="2">&nbsp;</span>
 				<span class="rs" id="3">&nbsp;</span>
@@ -120,9 +120,12 @@
 				<span class="rs" id="8">&nbsp;</span>
 				<span class="rs" id="9">&nbsp;</span>
 				<span class="rs" id="10">&nbsp;</span>
+
+				<div class="clearfix"></div>
 			</div>
-			<div class="clearfix"></div>
-		</div>
+		
+		<h4>Test</h4>
+		<p>{{sth}}</p>
 
       </div>
     </div>

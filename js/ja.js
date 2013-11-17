@@ -16,7 +16,7 @@ handleStarRating = function() {
 		}
 		else{
 			$('.own').removeClass('rt_' + iLastId);
-			$('.own').addClass('rt_' + 8); // Bestehende Bewertung, wenn vorhanden
+			$('.own').addClass('rt_' + 6); // Bestehende Bewertung, wenn vorhanden
 		}
 	});
  };
